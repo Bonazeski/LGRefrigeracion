@@ -98,7 +98,7 @@ h3 {
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px; /* AJUSTE: Mantiene el gap de 10px para icono y texto. Esto ya debería funcionar. */
+    gap: 10px;
     border-radius: 8px;
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -125,7 +125,7 @@ h3 {
 }
 
 /* Estilo base para los iconos dentro de las tarjetas (puede ser sobrescrito) */
-.card-icon { /* Usaremos esta clase directamente */
+.card-icon {
     font-size: 3em;
     color: var(--color-accent);
     margin-bottom: 20px;
@@ -157,9 +157,8 @@ h3 {
 .nav-menu ul {
     display: flex;
     gap: 30px;
-    /* CAMBIO: Permitir que el menú se envuelva en varias líneas si es necesario */
-    flex-wrap: wrap; /* Nuevo */
-    justify-content: flex-end; /* Alinea los ítems a la derecha */
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .nav-menu ul li a {
@@ -178,12 +177,12 @@ h3 {
 /* SECCIÓN HERO (Página de Inicio)                           */
 /* ========================================================= */
 .hero-section {
-    background-color: var(--color-secondary); /* Usando la variable actualizada a gris */
+    background-color: var(--color-secondary);
 }
 
 .hero-section .container {
     max-width: 900px;
-    text-align: center; /* Centrar el contenido del hero */
+    text-align: center;
 }
 
 .hero-section h1 {
@@ -195,19 +194,16 @@ h3 {
     line-height: 1.2;
 }
 
-/* El párrafo introductorio de Hero usa .section-intro. Se alinea a la izquierda por su propia clase. */
-
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; /* AJUSTE: Mantener el gap horizontal para pantallas más grandes */
     flex-wrap: wrap;
-    margin-top: 40px; /* Margen para separar de los textos */
+    margin-top: 40px;
 }
 
 .btn-primary-large,
 .btn-secondary-small {
-    /* Asegurar que ambos botones tengan el mismo ancho */
     min-width: 250px; 
     padding: 15px 30px; 
     font-size: 1.1em; 
@@ -240,55 +236,57 @@ h3 {
 /* SECCIÓN DE SERVICIOS                                      */
 /* ========================================================= */
 .services-section {
-    background-color: var(--color-secondary); /* Cambiado a la variable gris */
+    background-color: var(--color-secondary);
 }
-
-/* El párrafo introductorio de Servicios usa .section-intro. */
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px; /* AJUSTE: Aumentado el espacio entre tarjetas */
+    gap: 40px;
     justify-content: center;
-    align-items: stretch; /* CAMBIO: Asegura que las tarjetas se estiren para tener la misma altura */
+    align-items: stretch; 
 }
 
-.service-card { /* Usa base-card */
+.service-card {
     padding: 40px;
-    text-align: left; /* Contenido de la tarjeta alineado a la izquierda */
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra el icono y el subtítulo */
-    height: 100%; /* CAMBIO: Asegura que la tarjeta ocupe toda la altura de la celda de la grilla */
+    align-items: center;
+    height: 100%; 
+    min-height: 450px; /* AJUSTE: Establece una altura mínima para las tarjetas de servicio. */
+    /* Este valor puede necesitar un ajuste fino una vez que veas cómo se ve con tu contenido. */
 }
 
-/* Iconos de tarjetas de servicio (usando la clase .card-icon) */
-
-.service-card h3 { /* Títulos de las tarjetas (Aires, Heladeras) */
+.service-card h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8em;
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 10px;
-    text-align: center; /* Títulos de tarjetas centrados */
+    text-align: center;
 }
 
 .service-card .card-subtitle {
     font-size: 1em;
     color: #666;
     margin-bottom: 25px;
-    text-align: center; /* Subtítulo de tarjeta centrado */
+    text-align: center;
 }
 
 .service-list {
     margin-top: 20px;
     width: 100%;
+    flex-grow: 1; /* AJUSTE: Permite que la lista crezca y ocupe espacio, empujando el resto hacia abajo si la tarjeta tiene más contenido */
+    display: flex; /* AJUSTE: Usa flexbox para controlar el espaciado interno de la lista */
+    flex-direction: column; /* AJUSTE: Apila los ítems verticalmente */
+    justify-content: flex-start; /* AJUSTE: Alinea el contenido de la lista al inicio */
 }
 
 .service-list li {
     display: flex;
     align-items: flex-start;
-    gap: 15px; /* AJUSTE: Aumentado el espacio entre el icono de checklist y el texto */
+    gap: 15px;
     margin-bottom: 15px;
     font-size: 1.05em;
     color: var(--color-text-dark);
@@ -311,11 +309,9 @@ h3 {
 /* SECCIÓN NOSOTROS / EQUIPO                                 */
 /* ========================================================= */
 .about-hero-section {
-    background-color: var(--color-secondary); /* Usando la variable gris */
-    padding-bottom: 40px; /* Ajuste para el padding vertical */
+    background-color: var(--color-secondary);
+    padding-bottom: 40px;
 }
-
-/* Los párrafos introductorios de Nosotros usan .section-intro. */
 
 .values-grid {
     display: flex;
@@ -344,16 +340,15 @@ h3 {
     color: var(--color-primary);
 }
 
-/* SECCIÓN: ¿POR QUÉ ELEGIRNOS? */
 .why-choose-us-section {
-    background-color: var(--color-secondary); /* Usando la variable gris */
+    background-color: var(--color-secondary);
 }
 
 .why-choose-us-section .container {
     max-width: 900px;
 }
 
-.why-choose-list { /* Usa base-card */
+.why-choose-list {
     padding: 40px;
 }
 
@@ -363,7 +358,7 @@ h3 {
     gap: 15px;
     margin-bottom: 25px;
     line-height: 1.6;
-    text-align: left; /* Alineado a la izquierda como pediste */
+    text-align: left;
 }
 
 .why-choose-list .list-item-wrapper:last-child {
@@ -377,40 +372,31 @@ h3 {
     margin-top: 3px;
 }
 
-.why-choose-list .list-item-title { /* CLASE PARA EL TÍTULO DE CADA ITEM */
+.why-choose-list .list-item-title {
     color: var(--color-primary);
     font-size: 1.1em;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
-/* La regla para .why-choose-list dd ha sido eliminada o comentada */
-/* .why-choose-list dd {
-    margin-left: 0;
-    font-size: 1.05em;
-    color: var(--color-text-dark);
-} */
-
 
 /* ========================================================= */
 /* SECCIÓN DE CONTACTO                                       */
 /* ========================================================= */
 .contact-section {
-    background-color: var(--color-secondary); /* Usando la variable gris */
+    background-color: var(--color-secondary);
 }
-
-/* El párrafo introductorio de Contacto usa .section-intro. */
 
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
-    gap: 30px; /* AJUSTE: Espacio entre las tarjetas de contacto */
+    gap: 30px;
     justify-content: center;
     max-width: 990px;
     margin: 0 auto;
 }
 
-.contact-card { /* Usa base-card */
+.contact-card {
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -448,9 +434,8 @@ h3 {
     display: block;
     width: 100%;
     max-width: 180px;
-    margin-top: 15px; /* AJUSTE: Añade espacio entre botones si se apilan */
+    margin-top: 15px;
 }
-/* AJUSTE: Eliminar el margen superior para el primer botón de cada tarjeta, si es necesario */
 .contact-card .btn-contact:first-of-type {
     margin-top: 0;
 }
@@ -595,29 +580,26 @@ h3 {
         text-align: center;
     }
     .header .logo {
-        margin-bottom: 10px; /* Espacio debajo del logo */
+        margin-bottom: 10px;
     }
     .nav-menu ul {
-        /* Eliminamos flex-direction: column para que intente ser horizontal */
-        flex-direction: row; /* CAMBIO: Aseguramos que sea horizontal */
-        gap: 10px; /* AJUSTE: Reducimos el espacio entre ítems para ahorrar espacio */
-        margin-top: 10px; /* AJUSTE: Menos margen superior */
-        justify-content: center; /* Centra los ítems horizontalmente */
-        /* CAMBIO: Permitir que los ítems se envuelvan si no caben en una línea */
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
         flex-wrap: wrap; 
-        padding: 5px 0; /* Un poco de padding para que los bordes no se peguen */
+        padding: 5px 0;
     }
     .nav-menu ul li a {
-        font-size: 0.9em; /* AJUSTE: Reducimos el tamaño de la fuente */
-        padding: 5px 8px; /* AJUSTE: Reducimos el padding para que los ítems sean más pequeños */
-        display: block; /* Para que el padding y border-bottom se apliquen bien */
-        white-space: nowrap; /* Evita que el texto de cada ítem se rompa */
-        border-bottom: none; /* Eliminamos el borde de la página actual por defecto en móvil */
+        font-size: 0.9em;
+        padding: 5px 8px;
+        display: block;
+        white-space: nowrap;
+        border-bottom: none;
     }
-    /* Estilo para el enlace de la página actual en la navegación (en móvil) */
     .nav-menu ul li.current-page a {
-        border-bottom: 2px solid var(--color-accent); /* Mantiene el borde para la página actual */
-        padding-bottom: 3px; /* Ajusta el padding para que el borde se vea bien */
+        border-bottom: 2px solid var(--color-accent);
+        padding-bottom: 3px;
     }
 
 
@@ -641,28 +623,35 @@ h3 {
     }
     .section-intro, .services-intro, .about-intro, .about-intro-secondary, .contact-intro {
         font-size: 1.1em;
-        text-align: center; /* Centrar en móviles para mejor legibilidad */
+        text-align: center;
     }
     .hero-buttons {
         flex-direction: column;
-        gap: 15px; /* AJUSTE: Añade espacio entre los botones del hero en móvil */
+        gap: 0; /* AJUSTE: Quitamos el gap del contenedor para manejar el margen individualmente */
+    }
+    .hero-buttons .btn { /* AJUSTE: Añadimos margen inferior a cada botón del hero */
+        margin-bottom: 15px; /* Espacio entre botones apilados */
+    }
+    .hero-buttons .btn:last-child { /* AJUSTE: Eliminar margen inferior del último botón */
+        margin-bottom: 0;
     }
     .btn-primary-large,
     .btn-secondary-small {
         width: 100%;
-        max-width: 300px; /* Limita el ancho del botón en móviles */
+        max-width: 300px;
     }
 
     /* Services Section */
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 30px; /* AJUSTE: Ajusta el espacio entre tarjetas en móvil */
+        gap: 30px;
     }
     .service-card {
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
-        height: auto; /* Permite que la altura se ajuste en móvil */
+        height: auto;
+        min-height: 400px; /* AJUSTE: Puede que necesites ajustar esta altura mínima en móvil también, o eliminarla si ya se ven bien */
     }
     .card-icon {
         font-size: 2.5em;
@@ -671,7 +660,7 @@ h3 {
         font-size: 1.5em;
     }
     .service-list li {
-        gap: 10px; /* AJUSTE: Reduce un poco el gap del checklist en móvil si es necesario */
+        gap: 10px;
     }
 
 
@@ -693,7 +682,7 @@ h3 {
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
-        text-align: left; /* Mantener alineación a la izquierda en móvil para los items */
+        text-align: left;
     }
 
     /* Contact Section */
@@ -724,8 +713,8 @@ h3 {
 @media (max-width: 480px) {
     /* Header */
     .nav-menu ul li a {
-        font-size: 0.8em; /* AJUSTE: Aún más pequeño para pantallas muy chicas */
-        padding: 3px 6px; /* AJUSTE: Menor padding */
+        font-size: 0.8em;
+        padding: 3px 6px;
     }
 
     /* General */
@@ -747,6 +736,9 @@ h3 {
     /* Services Section */
     .services-section h2 {
         font-size: 1.8em;
+    }
+    .service-card {
+        min-height: 380px; /* AJUSTE: Posiblemente ajustar más la altura mínima para pantallas muy pequeñas */
     }
 
     /* About Section */

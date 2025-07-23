@@ -157,6 +157,9 @@ h3 {
 .nav-menu ul {
     display: flex;
     gap: 30px;
+    /* CAMBIO: Permitir que el menú se envuelva en varias líneas si es necesario */
+    flex-wrap: wrap; /* Nuevo */
+    justify-content: flex-end; /* Alinea los ítems a la derecha */
 }
 
 .nav-menu ul li a {
@@ -591,22 +594,30 @@ h3 {
         flex-direction: column;
         text-align: center;
     }
+    .header .logo {
+        margin-bottom: 10px; /* Espacio debajo del logo */
+    }
     .nav-menu ul {
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
-        align-items: center; /* CAMBIO: Centra los ítems del menú en móvil */
+        /* Eliminamos flex-direction: column para que intente ser horizontal */
+        flex-direction: row; /* CAMBIO: Aseguramos que sea horizontal */
+        gap: 10px; /* AJUSTE: Reducimos el espacio entre ítems para ahorrar espacio */
+        margin-top: 10px; /* AJUSTE: Menos margen superior */
+        justify-content: center; /* Centra los ítems horizontalmente */
+        /* CAMBIO: Permitir que los ítems se envuelvan si no caben en una línea */
+        flex-wrap: wrap; 
+        padding: 5px 0; /* Un poco de padding para que los bordes no se peguen */
     }
     .nav-menu ul li a {
-        padding-bottom: 0; /* Asegura que no haya un borde innecesario */
-        border-bottom: none; /* Asegura que no haya un borde innecesario */
-        display: block; /* Hace que el enlace ocupe todo el ancho para una mejor área de clic */
-        padding: 5px 0; /* Añade un poco de padding vertical para el área de clic */
+        font-size: 0.9em; /* AJUSTE: Reducimos el tamaño de la fuente */
+        padding: 5px 8px; /* AJUSTE: Reducimos el padding para que los ítems sean más pequeños */
+        display: block; /* Para que el padding y border-bottom se apliquen bien */
+        white-space: nowrap; /* Evita que el texto de cada ítem se rompa */
+        border-bottom: none; /* Eliminamos el borde de la página actual por defecto en móvil */
     }
     /* Estilo para el enlace de la página actual en la navegación (en móvil) */
     .nav-menu ul li.current-page a {
         border-bottom: 2px solid var(--color-accent); /* Mantiene el borde para la página actual */
-        padding-bottom: 5px; /* Ajusta el padding para que el borde se vea bien */
+        padding-bottom: 3px; /* Ajusta el padding para que el borde se vea bien */
     }
 
 
@@ -711,6 +722,12 @@ h3 {
 
 /* Para móviles muy pequeños */
 @media (max-width: 480px) {
+    /* Header */
+    .nav-menu ul li a {
+        font-size: 0.8em; /* AJUSTE: Aún más pequeño para pantallas muy chicas */
+        padding: 3px 6px; /* AJUSTE: Menor padding */
+    }
+
     /* General */
     h2 {
         font-size: 1.8em;

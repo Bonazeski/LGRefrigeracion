@@ -1,0 +1,756 @@
+/* ========================================================= */
+/* ESTILOS GLOBALES Y VARIABLES                              */
+/* ========================================================= */
+
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;700&display=swap');
+
+/* Variables CSS para colores */
+:root {
+    --color-primary: #0C214A; /* Azul oscuro para footer y botones principales */
+    --color-secondary: #f8f8f8; /* Ahora es gris claro para fondo del hero y secciones (Servicios, Contacto, Nosotros) */
+    --color-accent: #26A69A; /* Verde/azul turquesa para el logo y elementos accent */
+    --color-text-dark: #333; /* Texto oscuro general */
+    --color-text-light: #F0F0F0; /* Texto claro para fondos oscuros */
+    --color-button-outline: #26A69A; /* Borde del botón de WhatsApp */
+    --box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para header */
+    --box-shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra para tarjetas/listas */
+    --box-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra al pasar el mouse */
+}
+
+/* Reset básico y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente principal para el cuerpo */
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: #fff; /* Fondo blanco general */
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espaciado a los lados */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del padre por defecto */
+}
+
+ul {
+    list-style: none;
+}
+
+/* Estilos comunes para títulos H2 y H3 */
+h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-align: center; /* Títulos principales centrados */
+    margin-bottom: 20px; /* Margen debajo de H2 */
+}
+
+h2 {
+    font-size: 2.8em;
+}
+
+h3 {
+    font-size: 2.2em;
+    margin-bottom: 40px; /* Margen debajo de H3 */
+}
+
+/* Clases genéricas para secciones */
+.section-padding {
+    padding: 80px 20px;
+    /* text-align: center; No lo aplico aquí para que el contenido dentro de la sección decida su alineación */
+}
+
+.section-padding-small {
+    padding: 60px 20px;
+}
+
+/* Estilos para los párrafos introductorios que deben ir a la izquierda */
+.section-intro, .services-intro, .about-intro, .about-intro-secondary, .contact-intro {
+    font-size: 1.15em;
+    color: var(--color-text-dark);
+    margin-bottom: 40px; /* Margen inferior para los intros */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    text-align: left; /* Alineado a la izquierda como pediste */
+}
+
+/* Estilo para el enlace de la página actual en la navegación */
+.nav-menu ul li.current-page a {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 5px;
+}
+
+/* Estilos base para todos los botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* AJUSTE: Mantiene el gap de 10px para icono y texto. Esto ya debería funcionar. */
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+.btn i {
+    font-size: 1.2em;
+}
+
+/* Estilos base para todas las tarjetas (Cards) */
+.base-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.base-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* Estilo base para los iconos dentro de las tarjetas (puede ser sobrescrito) */
+.card-icon { /* Usaremos esta clase directamente */
+    font-size: 3em;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* ========================================================= */
+/* CABECERA / HEADER                                         */
+/* ========================================================= */
+.header {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: var(--box-shadow-light);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu ul li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--color-accent);
+}
+
+
+/* ========================================================= */
+/* SECCIÓN HERO (Página de Inicio)                           */
+/* ========================================================= */
+.hero-section {
+    background-color: var(--color-secondary); /* Usando la variable actualizada a gris */
+}
+
+.hero-section .container {
+    max-width: 900px;
+    text-align: center; /* Centrar el contenido del hero */
+}
+
+.hero-section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* El párrafo introductorio de Hero usa .section-intro. Se alinea a la izquierda por su propia clase. */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px; /* Margen para separar de los textos */
+}
+
+.btn-primary-large,
+.btn-secondary-small {
+    /* Asegurar que ambos botones tengan el mismo ancho */
+    min-width: 250px; 
+    padding: 15px 30px; 
+    font-size: 1.1em; 
+}
+
+.btn-primary-large {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-primary-large:hover {
+    background-color: #081734;
+    border-color: #081734;
+}
+
+.btn-secondary-small {
+    background-color: transparent;
+    color: var(--color-button-outline);
+    border: 2px solid var(--color-button-outline);
+}
+
+.btn-secondary-small:hover {
+    background-color: var(--color-button-outline);
+    color: var(--color-text-light);
+}
+
+
+/* ========================================================= */
+/* SECCIÓN DE SERVICIOS                                      */
+/* ========================================================= */
+.services-section {
+    background-color: var(--color-secondary); /* Cambiado a la variable gris */
+}
+
+/* El párrafo introductorio de Servicios usa .section-intro. */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px; /* AJUSTE: Aumentado el espacio entre tarjetas */
+    justify-content: center;
+    align-items: stretch; /* CAMBIO: Asegura que las tarjetas se estiren para tener la misma altura */
+}
+
+.service-card { /* Usa base-card */
+    padding: 40px;
+    text-align: left; /* Contenido de la tarjeta alineado a la izquierda */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el icono y el subtítulo */
+    height: 100%; /* CAMBIO: Asegura que la tarjeta ocupe toda la altura de la celda de la grilla */
+}
+
+/* Iconos de tarjetas de servicio (usando la clase .card-icon) */
+
+.service-card h3 { /* Títulos de las tarjetas (Aires, Heladeras) */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    text-align: center; /* Títulos de tarjetas centrados */
+}
+
+.service-card .card-subtitle {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center; /* Subtítulo de tarjeta centrado */
+}
+
+.service-list {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.service-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* AJUSTE: Aumentado el espacio entre el icono de checklist y el texto */
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    color: var(--color-text-dark);
+    text-align: left;
+}
+
+.service-list li:last-child {
+    margin-bottom: 0;
+}
+
+.service-list li i.fas.fa-check-circle {
+    color: var(--color-accent);
+    font-size: 1.2em;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+
+/* ========================================================= */
+/* SECCIÓN NOSOTROS / EQUIPO                                 */
+/* ========================================================= */
+.about-hero-section {
+    background-color: var(--color-secondary); /* Usando la variable gris */
+    padding-bottom: 40px; /* Ajuste para el padding vertical */
+}
+
+/* Los párrafos introductorios de Nosotros usan .section-intro. */
+
+.values-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.value-item {
+    text-align: center;
+    padding: 20px;
+    width: 250px;
+}
+
+.value-item i {
+    font-size: 4em;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--color-primary);
+}
+
+/* SECCIÓN: ¿POR QUÉ ELEGIRNOS? */
+.why-choose-us-section {
+    background-color: var(--color-secondary); /* Usando la variable gris */
+}
+
+.why-choose-us-section .container {
+    max-width: 900px;
+}
+
+.why-choose-list { /* Usa base-card */
+    padding: 40px;
+}
+
+.why-choose-list .list-item-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    text-align: left; /* Alineado a la izquierda como pediste */
+}
+
+.why-choose-list .list-item-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.why-choose-list .list-item-wrapper i.fas.fa-check-circle {
+    color: var(--color-accent);
+    font-size: 1.3em;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.why-choose-list .list-item-title { /* CLASE PARA EL TÍTULO DE CADA ITEM */
+    color: var(--color-primary);
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* La regla para .why-choose-list dd ha sido eliminada o comentada */
+/* .why-choose-list dd {
+    margin-left: 0;
+    font-size: 1.05em;
+    color: var(--color-text-dark);
+} */
+
+
+/* ========================================================= */
+/* SECCIÓN DE CONTACTO                                       */
+/* ========================================================= */
+.contact-section {
+    background-color: var(--color-secondary); /* Usando la variable gris */
+}
+
+/* El párrafo introductorio de Contacto usa .section-intro. */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 30px; /* AJUSTE: Espacio entre las tarjetas de contacto */
+    justify-content: center;
+    max-width: 990px;
+    margin: 0 auto;
+}
+
+.contact-card { /* Usa base-card */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    max-width: 100%;
+}
+
+.contact-card .card-icon {
+    font-size: 3.5em;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.contact-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.btn-contact {
+    font-size: 1em;
+    padding: 12px 25px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    margin-top: 15px; /* AJUSTE: Añade espacio entre botones si se apilan */
+}
+/* AJUSTE: Eliminar el margen superior para el primer botón de cada tarjeta, si es necesario */
+.contact-card .btn-contact:first-of-type {
+    margin-top: 0;
+}
+
+
+.btn-contact.btn-call {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-contact.btn-call:hover {
+    background-color: #081734;
+    border-color: #081734;
+}
+
+.btn-contact.btn-whatsapp {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-contact.btn-whatsapp:hover {
+    background-color: #1a8f83;
+    border-color: #1a8f83;
+}
+
+.btn-contact.btn-social {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-contact.btn-social:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+
+/* ========================================================= */
+/* PIE DE PÁGINA / FOOTER                                    */
+/* ========================================================= */
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-about .logo-footer img {
+    height: 80px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.footer-about h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+}
+
+.footer-about p {
+    font-size: 0.95em;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+
+.footer-services h4,
+.footer-contact h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--color-text-light);
+}
+
+.footer-services ul li,
+.footer-contact p {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-services ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-contact p i {
+    font-size: 1.1em;
+    color: var(--color-accent);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+/* ========================================================= */
+/* MEDIA QUERIES                                             */
+/* ========================================================= */
+
+/* Para pantallas medianas (e.g., tabletas en modo horizontal, laptops pequeñas) */
+@media (max-width: 992px) {
+    h2 {
+        font-size: 2.2em;
+    }
+    h3 {
+        font-size: 1.8em;
+    }
+
+    /* Hero Section */
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+        max-width: 630px; /* 2 tarjetas de 300px + 1 gap de 30px */
+    }
+}
+
+/* Para pantallas pequeñas (e.g., tabletas en modo vertical, móviles grandes) */
+@media (max-width: 768px) {
+    /* Header */
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        align-items: center; /* CAMBIO: Centra los ítems del menú en móvil */
+    }
+    .nav-menu ul li a {
+        padding-bottom: 0; /* Asegura que no haya un borde innecesario */
+        border-bottom: none; /* Asegura que no haya un borde innecesario */
+        display: block; /* Hace que el enlace ocupe todo el ancho para una mejor área de clic */
+        padding: 5px 0; /* Añade un poco de padding vertical para el área de clic */
+    }
+    /* Estilo para el enlace de la página actual en la navegación (en móvil) */
+    .nav-menu ul li.current-page a {
+        border-bottom: 2px solid var(--color-accent); /* Mantiene el borde para la página actual */
+        padding-bottom: 5px; /* Ajusta el padding para que el borde se vea bien */
+    }
+
+
+    /* General Sections */
+    .section-padding {
+        padding: 60px 20px;
+    }
+    .section-padding-small {
+        padding: 40px 20px;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.6em;
+    }
+
+    /* Hero Section */
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+    .section-intro, .services-intro, .about-intro, .about-intro-secondary, .contact-intro {
+        font-size: 1.1em;
+        text-align: center; /* Centrar en móviles para mejor legibilidad */
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px; /* AJUSTE: Añade espacio entre los botones del hero en móvil */
+    }
+    .btn-primary-large,
+    .btn-secondary-small {
+        width: 100%;
+        max-width: 300px; /* Limita el ancho del botón en móviles */
+    }
+
+    /* Services Section */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px; /* AJUSTE: Ajusta el espacio entre tarjetas en móvil */
+    }
+    .service-card {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto; /* Permite que la altura se ajuste en móvil */
+    }
+    .card-icon {
+        font-size: 2.5em;
+    }
+    .service-card h3 {
+        font-size: 1.5em;
+    }
+    .service-list li {
+        gap: 10px; /* AJUSTE: Reduce un poco el gap del checklist en móvil si es necesario */
+    }
+
+
+    /* About Section */
+    .values-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .value-item {
+        width: 100%;
+        max-width: 280px;
+    }
+    .about-hero-section {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+    .why-choose-list {
+        padding: 30px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left; /* Mantener alineación a la izquierda en móvil para los items */
+    }
+
+    /* Contact Section */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+    .contact-card {
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .contact-card .card-icon {
+        font-size: 3em;
+    }
+    .contact-card h4 {
+        font-size: 1.3em;
+    }
+    .contact-card p {
+        font-size: 1em;
+    }
+    .btn-contact {
+        padding: 10px 20px;
+    }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 480px) {
+    /* General */
+    h2 {
+        font-size: 1.8em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+
+    /* Hero Section */
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+    .section-intro, .services-intro, .about-intro, .about-intro-secondary, .contact-intro {
+        font-size: 1em;
+    }
+
+    /* Services Section */
+    .services-section h2 {
+        font-size: 1.8em;
+    }
+
+    /* About Section */
+    .about-hero-section h2 {
+        font-size: 1.8em;
+    }
+    .value-item i {
+        font-size: 3.5em;
+    }
+    .value-item p {
+        font-size: 1em;
+    }
+    .why-choose-us-section h3 {
+        font-size: 1.6em;
+    }
+    .why-choose-list .list-item-wrapper {
+        font-size: 0.95em;
+    }
+
+    /* Contact Section */
+    .contact-section h2 {
+        font-size: 1.8em;
+    }
+}

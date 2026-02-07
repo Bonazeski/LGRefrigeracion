@@ -6,4 +6,3 @@ En este proyecto se puso en práctica una arquitectura de navegación mixta, y e
 * Figma
 * HTML semántico
 * CSS puro
-* 
